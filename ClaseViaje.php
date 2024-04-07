@@ -91,4 +91,22 @@ class ViajeFeliz{
         return $permiteAgregarPasaj;
     }
 
+    //(Para mi) VERIFICAR QUE ESTE BIEN ESTA FUNCIÓN.
+    public function mostrarPasajeros(){
+        $pasajeroElegido = "";
+        $arrayPasajeros = $this->getPasajeros();
+        foreach ($arrayPasajeros as $pasajeroo){
+            $pasajeroElegido .= $pasajeroo ."\n"; //.= concatena una cadena a otra.
+        }
+        return $pasajeroElegido;
+    }
+
+    public function __toString() {
+        return "Código de viaje: " . $this->getCodigo() . 
+        "\nDestino: " . $this->getDestino() . 
+        "\nCantidad máxima de pasajeros: " . $this->getCantPasajeros() . 
+        "\nPasajeros del viaje: " . $this->mostrarPasajeros() . 
+        "\nResponsable del viaje: " . $this->getResponsableV();
+    }
+
 }

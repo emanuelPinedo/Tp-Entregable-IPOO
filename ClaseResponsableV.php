@@ -1,5 +1,5 @@
 <?php
-class responsableV{
+class ResponsableV{
     private $nroEmpleado;
     private $nroLicencia;
     private $nombre;
@@ -50,6 +50,5 @@ class responsableV{
         "\nNúmero de Empleado: " . $this->getNroEmpleado() . 
         "\nNúmero de Licencia: " . $this->getNroLicencia();
     }
-
 
 }
