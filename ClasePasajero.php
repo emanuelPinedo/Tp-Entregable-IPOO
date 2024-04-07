@@ -44,5 +44,12 @@ class Pasajero{
         $this->telefono = $celular;
     }
 
+    public function __toString() {
+        return "Nombre Pasajero: " . $this->getNombre() . 
+        "\nApellido: " . $this->getApellido() . 
+        "\nNúmero de Documento: " . $this->getDni() . 
+        "\nTelefono: " . $this->getTelefono();
+    }
+
 
 }

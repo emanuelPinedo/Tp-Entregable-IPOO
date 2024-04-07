@@ -54,4 +54,41 @@ class ViajeFeliz{
         $this->objResponsableV = $responsable;
     }
 
+    public function modificarPasajero($pasajeroElegido, $nombreNuevo, $apellidoNuevo, $celularNuevo) {
+        $pasajGuardado = $this->getPasajeros(); //guarda el arreglo pasajeros
+        $cambiar = false;//Si no permite cambiar los datos del pasajero retornará false.
+        foreach ($pasajGuardado as $pasajero){
+            if ($pasajero->getDni() === $pasajeroElegido){
+                $pasajero->setNombre($nombreNuevo);
+                $pasajero->setApellido($apellidoNuevo);
+                $pasajero->setTelefono($celularNuevo);
+                $cambiar = true;//Si entra el if, permitió cambiar los datos, retornará true.
+            }
+        }
+        return $cambiar;
+    }
+
+    public function agregarPasajero($nuevoPasajero){
+        $arrayPasajeros = $this->getPasajeros();
+        $pasajExistente = false;
+        //Foreach para verificar si el pasajero agregado existe o no.
+        foreach ($arrayPasajeros as $pasajeroExiste){
+            if($pasajeroExiste === $nuevoPasajero){
+                $pasajExistente = true;
+                break;
+            }
+        }
+
+        $permiteAgregarPasaj = false;
+        //Booleano para ver si se puede agregar el pasajero dependiendo de la cantidad de pasajeros.
+        $contadorPasajeros = count($this->getPasajeros());
+        //Contamos los pasajeros para ver si supera o no la cantidad máxima.
+        if($contadorPasajeros < $this->getCantPasajeros() && !$pasajExistente){
+            $arrayPasajeros[] = $nuevoPasajero;
+            $this->setPasajeros($arrayPasajeros);
+            $permiteAgregarPasaj = true;
+        }
+        return $permiteAgregarPasaj;
+    }
+
 }
