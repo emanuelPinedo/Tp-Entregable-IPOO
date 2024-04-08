@@ -5,6 +5,7 @@ class ResponsableV{
     private $nombre;
     private $apellido;
 
+    //metodo constructor
     public function __construct($nroEmpleado,$nroLicencia,$nombre,$apellido) {
         $this->nroEmpleado = $nroEmpleado;
         $this->nroLicencia = $nroLicencia;
@@ -12,6 +13,7 @@ class ResponsableV{
         $this->apellido = $apellido;
     }
 
+    //metodo de acceso (gets)
     public function getNroEmpleado(){
         return $this->nroEmpleado;
     }
@@ -28,6 +30,7 @@ class ResponsableV{
         return $this->apellido;
     }
 
+    //metodo de modificacion (sets)
     public function setNroEmpleado($numEmple){
         $this->nroLicencia = $numEmple;
     }
@@ -44,6 +47,7 @@ class ResponsableV{
         $this->apellido = $apell;
     }
 
+    //metodo transformador
     public function __toString() {
         return "Nombre de Responsable del viaje: " . $this->getNombre() . 
         "\nApellido: " . $this->getApellido() . 

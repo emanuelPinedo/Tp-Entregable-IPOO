@@ -6,6 +6,7 @@ class ViajeFeliz{
     private $objPasajeros;
     private $objResponsableV;
 
+    //metodo constructor
     public function __construct($codigo,$destino,$cantPasajeros,$objPasajeros,$objResponsableV) {
         $this->codigo = $codigo;
         $this->destino = $destino;
@@ -14,6 +15,7 @@ class ViajeFeliz{
         $this->objResponsableV = $objResponsableV;
     }
 
+    //metodo de acceso (gets)
     public function getCodigo(){
         return $this->codigo;
     }
@@ -34,6 +36,7 @@ class ViajeFeliz{
         return $this->objResponsableV;
     }
 
+    //metodo de modificacion (sets)
     public function setCodigo($codigo1){
         $this->codigo = $codigo1;
     }
@@ -54,11 +57,11 @@ class ViajeFeliz{
         $this->objResponsableV = $responsable;
     }
 
-    public function modificarPasajero($pasajeroElegido, $nombreNuevo, $apellidoNuevo, $celularNuevo) {
+    public function modificarPasajero($dniPasajero, $nombreNuevo, $apellidoNuevo, $celularNuevo) {
         $pasajGuardado = $this->getPasajeros(); //guarda el arreglo pasajeros
         $cambiar = false;//Si no permite cambiar los datos del pasajero retornará false.
         foreach ($pasajGuardado as $pasajero){
-            if ($pasajero->getDni() === $pasajeroElegido){
+            if ($pasajero->getDni() === $dniPasajero){
                 $pasajero->setNombre($nombreNuevo);
                 $pasajero->setApellido($apellidoNuevo);
                 $pasajero->setTelefono($celularNuevo);
@@ -101,6 +104,14 @@ class ViajeFeliz{
         return $pasajeroElegido;
     }
 
+    public function modificarEmpleado($numeroLicencia, $nombreNuevoEmpleado, $apellidoNuevoEmpleado, $numeroNuevoEmpleado) {
+        $empleadoResponsable = $this->getResponsableV();
+                $empleadoResponsable->setNombre($nombreNuevoEmpleado);
+                $empleadoResponsable->setApellido($apellidoNuevoEmpleado);
+                $empleadoResponsable->setNroEmpleado($numeroNuevoEmpleado);
+    }
+
+    //metodo transformador
     public function __toString() {
         return "Código de viaje: " . $this->getCodigo() . 
         "\nDestino: " . $this->getDestino() . 

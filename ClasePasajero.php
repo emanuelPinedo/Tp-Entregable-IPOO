@@ -5,6 +5,7 @@ class Pasajero{
     private $dni;
     private $telefono;
 
+    //metodo constructor
     public function __construct($nombre,$apellido,$dni,$telefono){
         $this->nombre = $nombre;
         $this->apellido = $apellido;
@@ -12,6 +13,7 @@ class Pasajero{
         $this->telefono = $telefono;
     }
 
+    //metodo de acceso (gets)
     public function getNombre(){
         return $this->nombre;
     }
@@ -24,6 +26,7 @@ class Pasajero{
         return $this->dni;
     }
 
+    //metodo de modificacion (sets)
     public function setNombre($name){
         $this->nombre = $name;
     }
@@ -44,12 +47,12 @@ class Pasajero{
         $this->telefono = $celular;
     }
 
+    //metodo transformador
     public function __toString() {
         return "Nombre Pasajero: " . $this->getNombre() . 
         "\nApellido: " . $this->getApellido() . 
         "\nNúmero de Documento: " . $this->getDni() . 
         "\nTelefono: " . $this->getTelefono();
     }
-
 
 }
