@@ -49,7 +49,7 @@ class ResponsableV{
 
     //metodo transformador
     public function __toString() {
-        return "Nombre de Responsable del viaje: " . $this->getNombre() . 
+        return "\nNombre de Responsable del viaje: " . $this->getNombre() . 
         "\nApellido: " . $this->getApellido() . 
         "\nNúmero de Empleado: " . $this->getNroEmpleado() . 
         "\nNúmero de Licencia: " . $this->getNroLicencia();

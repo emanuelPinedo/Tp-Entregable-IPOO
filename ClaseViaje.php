@@ -94,7 +94,6 @@ class ViajeFeliz{
         return $permiteAgregarPasaj;
     }
 
-    //(Para mi) VERIFICAR QUE ESTE BIEN ESTA FUNCIÓN.
     public function mostrarPasajeros(){
         $pasajeroElegido = "";
         $arrayPasajeros = $this->getPasajeros();
@@ -106,14 +105,21 @@ class ViajeFeliz{
 
     public function modificarEmpleado($numeroLicencia, $nombreNuevoEmpleado, $apellidoNuevoEmpleado, $numeroNuevoEmpleado) {
         $empleadoResponsable = $this->getResponsableV();
+        $cambiar = false;//Si no permite cambiar los datos del empleado retornará false.
+        foreach ($empleadoResponsable as $empleado){
+            if ($empleado->getNroLicencia() === $numeroLicencia){
                 $empleadoResponsable->setNombre($nombreNuevoEmpleado);
                 $empleadoResponsable->setApellido($apellidoNuevoEmpleado);
                 $empleadoResponsable->setNroEmpleado($numeroNuevoEmpleado);
+                $cambiar = true;//Si entra el if, permitió cambiar los datos, retornará true.
+            }
+        }
+        return $cambiar;
     }
 
     //metodo transformador
     public function __toString() {
-        return "Código de viaje: " . $this->getCodigo() . 
+        return "\nCódigo de viaje: " . $this->getCodigo() . 
         "\nDestino: " . $this->getDestino() . 
         "\nCantidad máxima de pasajeros: " . $this->getCantPasajeros() . 
         "\nPasajeros del viaje: " . $this->mostrarPasajeros() . 

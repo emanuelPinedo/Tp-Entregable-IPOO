@@ -49,7 +49,7 @@ class Pasajero{
 
     //metodo transformador
     public function __toString() {
-        return "Nombre Pasajero: " . $this->getNombre() . 
+        return "\nNombre Pasajero: " . $this->getNombre() . 
         "\nApellido: " . $this->getApellido() . 
         "\nNúmero de Documento: " . $this->getDni() . 
         "\nTelefono: " . $this->getTelefono();
